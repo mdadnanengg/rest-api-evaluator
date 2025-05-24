@@ -28,5 +28,5 @@
 ### 📁 Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/rest-api-evaluator.git
+git clone https://github.com/mdadnanengg/rest-api-evaluator.git
 cd rest-api-evaluator
