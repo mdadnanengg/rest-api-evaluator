@@ -295,7 +295,7 @@ function App() {
             <div className="stat-icon">📈</div>
             <div className="stat-content">
               <h3>Success Rate</h3>
-              <p>{summary.successRate}%</p>
+              <p>{summary.successRate ? Number(summary.successRate).toFixed(2) : "0"}%</p>
             </div>
           </div>
 
@@ -403,9 +403,8 @@ function App() {
                 </span>
                 <span className="endpoint">{log.endpoint}</span>
                 <span
-                  className={`status-code ${
-                    log.statusCode >= 200 && log.statusCode < 400 ? "success" : "failure"
-                  }`}
+                  className={`status-code ${log.statusCode >= 200 && log.statusCode < 400 ? "success" : "failure"
+                    }`}
                 >
                   {log.statusCode || "Error"}
                 </span>
