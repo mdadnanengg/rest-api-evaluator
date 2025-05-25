@@ -313,7 +313,8 @@ function App() {
         <div className="progress-section">
           <div className="progress-header">
             <span>Overall Progress</span>
-            <span>{summary.successRate}%</span>
+            <p>{summary.successRate ? Number(summary.successRate).toFixed(2) : "0"}%</p>
+
           </div>
           <div className="progress-bar">
             <div
