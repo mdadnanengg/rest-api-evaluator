@@ -2,17 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Bar, Line } from "react-chartjs-2";
 import "./App.css";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  LineElement,
-  PointElement,
-  Title,
-  Tooltip,
-  Legend,
-} from "chart.js";
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, LineElement, PointElement, Title, Tooltip, Legend } from "chart.js";
 
 // Register the required components
 ChartJS.register(CategoryScale, LinearScale, BarElement, LineElement, PointElement, Title, Tooltip, Legend);
@@ -257,8 +247,6 @@ function App() {
       },
     };
 
-    console.log("results", results)
-
     return (
       <div className="summary-section">
         <div className="summary-header">
@@ -356,39 +344,6 @@ function App() {
     );
   };
 
-  const renderMethodBreakdown = () => {
-    return (
-      <div className="breakdown-section">
-        <h2>🔍 Method Breakdown</h2>
-        <div className="method-cards">
-          {Object.entries(results.summary.methodBreakdown).map(([method, stats]) => (
-            <div key={method} className="method-card">
-              <div className="method-header">
-                <span className={`method-badge method-${method.toLowerCase()}`}>
-                  {method}
-                </span>
-                <span className="method-stats">
-                  {stats.success}/{stats.total}
-                </span>
-              </div>
-              <div className="method-progress">
-                <div
-                  className="method-progress-fill"
-                  style={{
-                    width: `${stats.total > 0 ? (stats.success / stats.total) * 100 : 0}%`,
-                  }}
-                ></div>
-              </div>
-              <div className="method-details">
-                <span>Success Rate: {stats.total > 0 ? ((stats.success / stats.total) * 100).toFixed(1) : 0}%</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  };
-
   const renderLogs = () => {
     if (!results) return null;
 
@@ -471,12 +426,6 @@ function App() {
                 📊 Summary
               </button>
               <button
-                className={`tab ${activeTab === "breakdown" ? "active" : ""}`}
-                onClick={() => setActiveTab("breakdown")}
-              >
-                🔍 Method Breakdown
-              </button>
-              <button
                 className={`tab ${activeTab === "logs" ? "active" : ""}`}
                 onClick={() => setActiveTab("logs")}
               >
@@ -486,7 +435,6 @@ function App() {
 
             <div className="tab-content">
               {activeTab === "summary" && renderSummary()}
-              {activeTab === "breakdown" && renderMethodBreakdown()}
               {activeTab === "logs" && renderLogs()}
             </div>
           </div>
