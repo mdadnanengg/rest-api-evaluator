@@ -357,11 +357,6 @@ function App() {
   };
 
   const renderMethodBreakdown = () => {
-    if (!results || !results.summary.methodBreakdown) {
-      console.log("null")
-      return null;
-    }
-
     return (
       <div className="breakdown-section">
         <h2>🔍 Method Breakdown</h2>
