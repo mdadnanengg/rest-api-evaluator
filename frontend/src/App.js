@@ -257,6 +257,8 @@ function App() {
       },
     };
 
+    console.log("results", results)
+
     return (
       <div className="summary-section">
         <div className="summary-header">
@@ -355,7 +357,10 @@ function App() {
   };
 
   const renderMethodBreakdown = () => {
-    if (!results || !results.summary.methodBreakdown) return null;
+    if (!results || !results.summary.methodBreakdown) {
+      console.log("null")
+      return null;
+    }
 
     return (
       <div className="breakdown-section">
